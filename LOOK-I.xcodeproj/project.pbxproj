@@ -11,6 +11,9 @@
 		12E818412B247C720016AF71 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12E818402B247C720016AF71 /* Assets.xcassets */; };
 		12E818442B247C720016AF71 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12E818432B247C720016AF71 /* Preview Assets.xcassets */; };
 		12E8184B2B247D2D0016AF71 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E8184A2B247D2D0016AF71 /* Reachability.swift */; };
+		12E8184D2B248E340016AF71 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E8184C2B248E340016AF71 /* SplashView.swift */; };
+		12E818502B248E900016AF71 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E8184F2B248E900016AF71 /* WebView.swift */; };
+		12E818542B2495570016AF71 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E818532B2495570016AF71 /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +22,9 @@
 		12E818402B247C720016AF71 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		12E818432B247C720016AF71 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		12E8184A2B247D2D0016AF71 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		12E8184C2B248E340016AF71 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		12E8184F2B248E900016AF71 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		12E818532B2495570016AF71 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +57,7 @@
 		12E8183B2B247C710016AF71 /* LOOK-I */ = {
 			isa = PBXGroup;
 			children = (
+				12E8184E2B248E400016AF71 /* View */,
 				12E8183C2B247C710016AF71 /* LOOK_IApp.swift */,
 				12E8184A2B247D2D0016AF71 /* Reachability.swift */,
 				12E818402B247C720016AF71 /* Assets.xcassets */,
@@ -65,6 +72,16 @@
 				12E818432B247C720016AF71 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		12E8184E2B248E400016AF71 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				12E8184C2B248E340016AF71 /* SplashView.swift */,
+				12E8184F2B248E900016AF71 /* WebView.swift */,
+				12E818532B2495570016AF71 /* ViewController.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +154,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12E818542B2495570016AF71 /* ViewController.swift in Sources */,
 				12E8184B2B247D2D0016AF71 /* Reachability.swift in Sources */,
+				12E818502B248E900016AF71 /* WebView.swift in Sources */,
 				12E8183D2B247C710016AF71 /* LOOK_IApp.swift in Sources */,
+				12E8184D2B248E340016AF71 /* SplashView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -195,6 +215,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "LOOK-I";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -249,6 +273,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "LOOK-I";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -269,6 +297,13 @@
 				DEVELOPMENT_ASSET_PATHS = "\"LOOK-I/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "LOOK-I";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "날씨 확인을 위해 위치 권한이 필요합니다.";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "날씨 확인을 위해 위치 권한이 필요합니다.";
+				INFOPLIST_KEY_NSLocationTemporaryUsageDescriptionDictionary = "";
+				INFOPLIST_KEY_NSLocationUsageDescription = "날씨 확인을 위해 위치 권한이 필요합니다.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "날씨 확인을 위해 위치 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -297,6 +332,13 @@
 				DEVELOPMENT_ASSET_PATHS = "\"LOOK-I/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "LOOK-I";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "날씨 확인을 위해 위치 권한이 필요합니다.";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "날씨 확인을 위해 위치 권한이 필요합니다.";
+				INFOPLIST_KEY_NSLocationTemporaryUsageDescriptionDictionary = "";
+				INFOPLIST_KEY_NSLocationUsageDescription = "날씨 확인을 위해 위치 권한이 필요합니다.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "날씨 확인을 위해 위치 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

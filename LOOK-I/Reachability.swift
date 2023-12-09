@@ -1,5 +1,6 @@
 //
-//  ContentView.swift
+// Reachability.swift
+// 네트워크 연결 확인 
 //
 
 import Foundation
