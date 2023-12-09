@@ -19,10 +19,10 @@ struct WebView: UIViewControllerRepresentable {
 
 struct SplashView: View {
     var body: some View {
-        Text("Loading...")
-            .font(.largeTitle)
-            .foregroundColor(.white)
-            .background(Color.accentColor)
+        Image("Splash") // "SplashImage"는 이미지 파일 이름으로 수정
+            .resizable()
+            .scaledToFill()
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
             .edgesIgnoringSafeArea(.all)
     }
 }
