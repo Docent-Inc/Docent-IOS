@@ -1,12 +1,12 @@
 //
-//  LOOK_IApp.swift
+//  LooiApp.swift
 //
 
 import SwiftUI
 import WebKit
 
 @main
-struct LOOK_IApp: App {
+struct LooiApp: App {
     @State private var isLoading = true
     
     var body: some Scene {

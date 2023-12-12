@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		12E8183D2B247C710016AF71 /* LOOK_IApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E8183C2B247C710016AF71 /* LOOK_IApp.swift */; };
+		12E8183D2B247C710016AF71 /* LooiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E8183C2B247C710016AF71 /* LooiApp.swift */; };
 		12E818412B247C720016AF71 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12E818402B247C720016AF71 /* Assets.xcassets */; };
 		12E818442B247C720016AF71 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12E818432B247C720016AF71 /* Preview Assets.xcassets */; };
 		12E8184B2B247D2D0016AF71 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E8184A2B247D2D0016AF71 /* Reachability.swift */; };
@@ -17,8 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		12E818392B247C710016AF71 /* LOOK-I.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LOOK-I.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		12E8183C2B247C710016AF71 /* LOOK_IApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LOOK_IApp.swift; sourceTree = "<group>"; };
+		12E818392B247C710016AF71 /* Looi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Looi.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		12E8183C2B247C710016AF71 /* LooiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LooiApp.swift; sourceTree = "<group>"; };
 		12E818402B247C720016AF71 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		12E818432B247C720016AF71 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		12E8184A2B247D2D0016AF71 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
@@ -41,7 +41,7 @@
 		12E818302B247C710016AF71 = {
 			isa = PBXGroup;
 			children = (
-				12E8183B2B247C710016AF71 /* LOOK-I */,
+				12E8183B2B247C710016AF71 /* Looi */,
 				12E8183A2B247C710016AF71 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -49,21 +49,21 @@
 		12E8183A2B247C710016AF71 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				12E818392B247C710016AF71 /* LOOK-I.app */,
+				12E818392B247C710016AF71 /* Looi.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		12E8183B2B247C710016AF71 /* LOOK-I */ = {
+		12E8183B2B247C710016AF71 /* Looi */ = {
 			isa = PBXGroup;
 			children = (
 				12E8184E2B248E400016AF71 /* View */,
-				12E8183C2B247C710016AF71 /* LOOK_IApp.swift */,
+				12E8183C2B247C710016AF71 /* LooiApp.swift */,
 				12E8184A2B247D2D0016AF71 /* Reachability.swift */,
 				12E818402B247C720016AF71 /* Assets.xcassets */,
 				12E818422B247C720016AF71 /* Preview Content */,
 			);
-			path = "LOOK-I";
+			path = Looi;
 			sourceTree = "<group>";
 		};
 		12E818422B247C720016AF71 /* Preview Content */ = {
@@ -87,9 +87,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		12E818382B247C710016AF71 /* LOOK-I */ = {
+		12E818382B247C710016AF71 /* Looi */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 12E818472B247C720016AF71 /* Build configuration list for PBXNativeTarget "LOOK-I" */;
+			buildConfigurationList = 12E818472B247C720016AF71 /* Build configuration list for PBXNativeTarget "Looi" */;
 			buildPhases = (
 				12E818352B247C710016AF71 /* Sources */,
 				12E818362B247C710016AF71 /* Frameworks */,
@@ -99,9 +99,9 @@
 			);
 			dependencies = (
 			);
-			name = "LOOK-I";
+			name = Looi;
 			productName = "LOOK-I";
-			productReference = 12E818392B247C710016AF71 /* LOOK-I.app */;
+			productReference = 12E818392B247C710016AF71 /* Looi.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -119,7 +119,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 12E818342B247C710016AF71 /* Build configuration list for PBXProject "LOOK-I" */;
+			buildConfigurationList = 12E818342B247C710016AF71 /* Build configuration list for PBXProject "Looi" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -132,7 +132,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				12E818382B247C710016AF71 /* LOOK-I */,
+				12E818382B247C710016AF71 /* Looi */,
 			);
 		};
 /* End PBXProject section */
@@ -157,7 +157,7 @@
 				12E818542B2495570016AF71 /* ViewController.swift in Sources */,
 				12E8184B2B247D2D0016AF71 /* Reachability.swift in Sources */,
 				12E818502B248E900016AF71 /* WebView.swift in Sources */,
-				12E8183D2B247C710016AF71 /* LOOK_IApp.swift in Sources */,
+				12E8183D2B247C710016AF71 /* LooiApp.swift in Sources */,
 				12E8184D2B248E340016AF71 /* SplashView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -215,7 +215,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = "LOOK-I";
+				INFOPLIST_KEY_CFBundleDisplayName = Looi;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "";
@@ -273,7 +273,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = "LOOK-I";
+				INFOPLIST_KEY_CFBundleDisplayName = Looi;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "";
@@ -294,10 +294,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"LOOK-I/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Looi/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = "LOOK-I";
+				INFOPLIST_KEY_CFBundleDisplayName = Looi;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "날씨 확인을 위해 위치 권한이 필요합니다.";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "날씨 확인을 위해 위치 권한이 필요합니다.";
@@ -314,7 +314,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "zip.docent.LOOK-I";
+				PRODUCT_BUNDLE_IDENTIFIER = zip.docent.looi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -329,10 +329,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"LOOK-I/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Looi/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = "LOOK-I";
+				INFOPLIST_KEY_CFBundleDisplayName = Looi;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "날씨 확인을 위해 위치 권한이 필요합니다.";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "날씨 확인을 위해 위치 권한이 필요합니다.";
@@ -349,7 +349,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "zip.docent.LOOK-I";
+				PRODUCT_BUNDLE_IDENTIFIER = zip.docent.looi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -360,7 +360,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		12E818342B247C710016AF71 /* Build configuration list for PBXProject "LOOK-I" */ = {
+		12E818342B247C710016AF71 /* Build configuration list for PBXProject "Looi" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				12E818452B247C720016AF71 /* Debug */,
@@ -369,7 +369,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		12E818472B247C720016AF71 /* Build configuration list for PBXNativeTarget "LOOK-I" */ = {
+		12E818472B247C720016AF71 /* Build configuration list for PBXNativeTarget "Looi" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				12E818482B247C720016AF71 /* Debug */,
