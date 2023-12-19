@@ -45,7 +45,7 @@ class ViewController: UIViewController, WKNavigationDelegate {
         webView.allowsBackForwardNavigationGestures = true
         webView.isInspectable = true
         
-        if let url = URL(string: "http://localhost:3000/") {
+        if let url = URL(string: "https://docent.zip/") {
             let request = URLRequest(url: url)
             webView.load(request)
         }
