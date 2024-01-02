@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		12A0C7E02B43E6790060E039 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 12A0C7DF2B43E6790060E039 /* GoogleService-Info.plist */; };
 		12A0C7E32B43E7DC0060E039 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 12A0C7E22B43E7DC0060E039 /* FirebaseAnalytics */; };
 		12A0C7E52B43E7DC0060E039 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = 12A0C7E42B43E7DC0060E039 /* FirebaseAnalyticsOnDeviceConversion */; };
 		12A0C7E72B43E7DC0060E039 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 12A0C7E62B43E7DC0060E039 /* FirebaseAnalyticsSwift */; };
 		12A0C7E92B43E7DC0060E039 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 12A0C7E82B43E7DC0060E039 /* FirebaseAnalyticsWithoutAdIdSupport */; };
 		12A0C7EB2B43E7DC0060E039 /* FirebaseAppCheck in Frameworks */ = {isa = PBXBuildFile; productRef = 12A0C7EA2B43E7DC0060E039 /* FirebaseAppCheck */; };
 		12A0C7F32B43FA800060E039 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 12A0C7F22B43FA800060E039 /* FirebaseMessaging */; };
+		12A0C7F72B4406A80060E039 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 12A0C7F62B4406A80060E039 /* GoogleService-Info.plist */; };
 		12E8183D2B247C710016AF71 /* LooiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E8183C2B247C710016AF71 /* LooiApp.swift */; };
 		12E818412B247C720016AF71 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12E818402B247C720016AF71 /* Assets.xcassets */; };
 		12E818442B247C720016AF71 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12E818432B247C720016AF71 /* Preview Assets.xcassets */; };
@@ -24,9 +24,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		12A0C7DF2B43E6790060E039 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
-		12A0C7F42B43FBEA0060E039 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		12A0C7F52B43FC970060E039 /* LooiDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LooiDebug.entitlements; sourceTree = "<group>"; };
+		12A0C7F62B4406A80060E039 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Looi/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		12E818392B247C710016AF71 /* Looi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Looi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		12E8183C2B247C710016AF71 /* LooiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LooiApp.swift; sourceTree = "<group>"; };
 		12E818402B247C720016AF71 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -64,7 +63,7 @@
 		12E818302B247C710016AF71 = {
 			isa = PBXGroup;
 			children = (
-				12A0C7F42B43FBEA0060E039 /* GoogleService-Info.plist */,
+				12A0C7F62B4406A80060E039 /* GoogleService-Info.plist */,
 				12E8183B2B247C710016AF71 /* Looi */,
 				12E8183A2B247C710016AF71 /* Products */,
 				12A0C7F12B43FA800060E039 /* Frameworks */,
@@ -83,7 +82,6 @@
 			isa = PBXGroup;
 			children = (
 				12A0C7F52B43FC970060E039 /* LooiDebug.entitlements */,
-				12A0C7DF2B43E6790060E039 /* GoogleService-Info.plist */,
 				12E8184E2B248E400016AF71 /* View */,
 				12E8183C2B247C710016AF71 /* LooiApp.swift */,
 				12E8184A2B247D2D0016AF71 /* Reachability.swift */,
@@ -182,7 +180,7 @@
 			files = (
 				12E818442B247C720016AF71 /* Preview Assets.xcassets in Resources */,
 				12E818412B247C720016AF71 /* Assets.xcassets in Resources */,
-				12A0C7E02B43E6790060E039 /* GoogleService-Info.plist in Resources */,
+				12A0C7F72B4406A80060E039 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
