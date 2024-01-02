@@ -60,7 +60,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     // APNs Token 저장
     func application(_ application: UIApplication,
                      didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        print("✅APNS token: \(deviceToken)")
+        print("APNS token: \(deviceToken)")
         Messaging.messaging().apnsToken = deviceToken
     }
     
@@ -75,7 +75,7 @@ extension AppDelegate: MessagingDelegate {
     // 토큰 업데이트 시마다 호출
     // ex. 새 기기에서 앱 복원, 사용자가 앱 제거/재설치, 사용자가 앱 데이터 삭제
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
-        print("✅Firebase registration token: \(String(describing: fcmToken))")
+        print("Firebase registration token: \(String(describing: fcmToken))")
         
         let dataDict: [String: String] = ["token": fcmToken ?? ""]
         NotificationCenter.default.post(

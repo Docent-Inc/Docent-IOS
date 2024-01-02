@@ -35,7 +35,22 @@ class ViewController: UIViewController, WKNavigationDelegate {
     }
     
     func webViewInit() {
-        webViewSetting()
+        let contentController = WKUserContentController()
+        let configuration = WKWebViewConfiguration()
+       
+        // Bridge 함수 등록
+        contentController.add(self, name: "reqFCMToken")
+        configuration.userContentController = contentController
+        
+        webView = WKWebView(frame: .zero, configuration: configuration)
+        webView.uiDelegate = self
+        webView.navigationDelegate = self
+        
+        // IOS App 구분을 위한 User-agent 설정
+        let userAgent = webView.value(forKey: "userAgent")
+        webView.customUserAgent = userAgent as! String + " looi-ios"
+         
+        self.view.addSubview(webView)
         
         // 쿠키, 세션, 로컬 스토리지, 캐시 등 데이터를 관리하는 객체 - 캐시 제거
         WKWebsiteDataStore.default().removeData(ofTypes:
@@ -46,59 +61,19 @@ class ViewController: UIViewController, WKNavigationDelegate {
         webView.allowsBackForwardNavigationGestures = true
         webView.isInspectable = true
         
+        // Prod - https://docent.zip/
+        // Dev - https://bmongsmong.com/
+        // Local http://192.168.45.20:3000/
         if let url = URL(string: "https://docent.zip/") {
             let request = URLRequest(url: url)
             webView.load(request)
         }
+        
     }
-    
-    func webViewSetting() {
-        webView = WKWebView(frame: self.view.bounds)
-        webView.navigationDelegate = self
-        self.view.addSubview(webView)
-    }
-    
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         self.didFinishLoading?()
-        
-        // 웹뷰 로드 후, FCM 토큰 등록
-        Messaging.messaging().token { token, error in
-          if let error = error {
-            print("👀Error fetching FCM registration token: \(error)")
-          } else if let token = token {
-            print("👀FCM registration token: \(token)")
-              self.callJavaScriptFunction(function: "setFCMToken", params: [token])
-          }
-        }
    }
-
-    
-    /**
-     * callJavaScriptFunction - 웹뷰 함수 실행
-     */
-    func callJavaScriptFunction(function: String, params: [Any]) {
-           var script = "\(function)("
-           for (index, param) in params.enumerated() {
-               if index > 0 {
-                   script += ", "
-               }
-               if let stringParam = param as? String {
-                   script += "'\(stringParam)'" // 문자열 파라미터인 경우 따옴표로 감싸줌
-               } else {
-                   script += "\(param)"
-               }
-           }
-           script += ");"
-
-           // WKWebView에서 JavaScript 함수 호출
-           print("✈️Call Webview Function: ", script);
-           webView.evaluateJavaScript(script) { (result, error) in
-                if let error = error {
-                    print(">>>>> \(error)")
-                }
-            }
-       }
 }
 
 /**
@@ -146,15 +121,54 @@ extension ViewController: WKUIDelegate{
  * Message Handler - 웹뷰와 통신
  */
 extension ViewController: WKScriptMessageHandler{
+    /**
+     * userContentController - 웹뷰로부터 수신한 브릿지 함수 (hybrid.js)
+     */
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
+        print("✈️Message received from Webview >>>", message.name, message.body);
         
-        if(message.name == "locationSearch"){
-            
+        if(message.name == "reqFCMToken"){
 //            let data:[String:String] = message.body as! Dictionary
             //location Event
             //data["action"] = searchLocation
             
+            // 웹뷰 로드 후, FCM 토큰 등록
+            Messaging.messaging().token { token, error in
+              if let error = error {
+                print("👀Error fetching FCM registration token: \(error)")
+              } else if let token = token {
+                print("👀FCM registration token: \(token)")
+                self.callJavaScriptFunction(function: "resFCMToken", params: [token]);
+              }
+            }
         }
     }
+    
+    /**
+     * callJavaScriptFunction - 웹뷰의 함수 실행 (functions.js)
+     */
+    func callJavaScriptFunction(function: String, params: [Any]) {
+           var script = "\(function)("
+           for (index, param) in params.enumerated() {
+               if index > 0 {
+                   script += ", "
+               }
+               if let stringParam = param as? String {
+                   script += "'\(stringParam)'"
+               } else {
+                   script += "\(param)"
+               }
+           }
+           script += ");"
+
+            print("✈️Call Webview Function >>> ", script);
+            webView.evaluateJavaScript(script) { (_, error) in
+                if let error = error {
+                    print(">>>>> error \(error)")
+                } else {
+                    print(">>>>> success")
+                }
+            }
+       }
 }
 
