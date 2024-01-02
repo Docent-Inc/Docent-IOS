@@ -37,15 +37,6 @@ class ViewController: UIViewController, WKNavigationDelegate {
     func webViewInit() {
         webViewSetting()
         
-        // [TODO] 아직 테스트 중 
-        Messaging.messaging().token { token, error in
-          if let error = error {
-            print("👀Error fetching FCM registration token: \(error)")
-          } else if let token = token {
-            print("👀FCM registration token: \(token)")
-          }
-        }
-        
         // 쿠키, 세션, 로컬 스토리지, 캐시 등 데이터를 관리하는 객체 - 캐시 제거
         WKWebsiteDataStore.default().removeData(ofTypes:
         [WKWebsiteDataTypeDiskCache, WKWebsiteDataTypeMemoryCache],
@@ -70,7 +61,44 @@ class ViewController: UIViewController, WKNavigationDelegate {
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         self.didFinishLoading?()
+        
+        // 웹뷰 로드 후, FCM 토큰 등록
+        Messaging.messaging().token { token, error in
+          if let error = error {
+            print("👀Error fetching FCM registration token: \(error)")
+          } else if let token = token {
+            print("👀FCM registration token: \(token)")
+              self.callJavaScriptFunction(function: "setFCMToken", params: [token])
+          }
+        }
    }
+
+    
+    /**
+     * callJavaScriptFunction - 웹뷰 함수 실행
+     */
+    func callJavaScriptFunction(function: String, params: [Any]) {
+           var script = "\(function)("
+           for (index, param) in params.enumerated() {
+               if index > 0 {
+                   script += ", "
+               }
+               if let stringParam = param as? String {
+                   script += "'\(stringParam)'" // 문자열 파라미터인 경우 따옴표로 감싸줌
+               } else {
+                   script += "\(param)"
+               }
+           }
+           script += ");"
+
+           // WKWebView에서 JavaScript 함수 호출
+           print("✈️Call Webview Function: ", script);
+           webView.evaluateJavaScript(script) { (result, error) in
+                if let error = error {
+                    print(">>>>> \(error)")
+                }
+            }
+       }
 }
 
 /**
@@ -129,3 +157,4 @@ extension ViewController: WKScriptMessageHandler{
         }
     }
 }
+
