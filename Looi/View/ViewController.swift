@@ -3,6 +3,7 @@
 //
 import SwiftUI
 import WebKit
+import FirebaseMessaging
 
 class ViewController: UIViewController, WKNavigationDelegate {
     var webView: WKWebView!
@@ -35,6 +36,15 @@ class ViewController: UIViewController, WKNavigationDelegate {
     
     func webViewInit() {
         webViewSetting()
+        
+        // [TODO] 아직 테스트 중 
+        Messaging.messaging().token { token, error in
+          if let error = error {
+            print("👀Error fetching FCM registration token: \(error)")
+          } else if let token = token {
+            print("👀FCM registration token: \(token)")
+          }
+        }
         
         // 쿠키, 세션, 로컬 스토리지, 캐시 등 데이터를 관리하는 객체 - 캐시 제거
         WKWebsiteDataStore.default().removeData(ofTypes:
