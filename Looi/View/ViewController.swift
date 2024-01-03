@@ -6,6 +6,11 @@ import WebKit
 import FirebaseMessaging
 
 class ViewController: UIViewController, WKNavigationDelegate {
+    // Prod - https://docent.zip
+    // Dev - https://bmongsmong.com
+    // Local http://192.168.45.20:3000
+    let BASE_URL: String = "https://bmongsmong.com"
+    
     var webView: WKWebView!
     var didFinishLoading: (() -> Void)?
     
@@ -57,22 +62,33 @@ class ViewController: UIViewController, WKNavigationDelegate {
         [WKWebsiteDataTypeDiskCache, WKWebsiteDataTypeMemoryCache],
         modifiedSince: Date(timeIntervalSince1970: 0)) { }
         
-        // 스와이프를 통해 뒤로가기 활성화
-        webView.allowsBackForwardNavigationGestures = true
-        webView.isInspectable = true
+        // 스와이프를 통해 뒤로가기 활성화 - 비활성화
+//        webView.allowsBackForwardNavigationGestures = true
+//        webView.isInspectable = true
         
-        // Prod - https://docent.zip/
-        // Dev - https://bmongsmong.com/
-        // Local http://192.168.45.20:3000/
-        if let url = URL(string: "https://docent.zip/") {
-            let request = URLRequest(url: url)
-            webView.load(request)
+        // Background 푸시를 통해 수신한 landing_url이 있는 경우,
+        let userDefault = UserDefaults.standard
+        if let landingUrl:String = userDefault.string(forKey: "LANDING_URL") {
+            print(">>> LANDING_URL", landingUrl);
+            
+            if let url = URL(string: BASE_URL + landingUrl) {
+                webView.load(URLRequest(url: url))
+            }
+            
+            userDefault.removeObject(forKey: "LANDING_URL")
+            userDefault.synchronize()
+            
+            return;
         }
         
+        if let url = URL(string: BASE_URL) {
+            webView.load(URLRequest(url: url))
+        }
     }
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         self.didFinishLoading?()
+        
    }
 }
 
