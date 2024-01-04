@@ -6,10 +6,7 @@ import WebKit
 import FirebaseMessaging
 
 class ViewController: UIViewController, WKNavigationDelegate {
-    // Prod - https://docent.zip
-    // Dev - https://bmongsmong.com
-    // Local http://192.168.45.20:3000
-    let BASE_URL: String = "https://bmongsmong.com"
+    let BASE_URL: String =  Bundle.main.object(forInfoDictionaryKey: "BaseURL") as? String ?? ""
     
     var webView: WKWebView!
     var didFinishLoading: (() -> Void)?

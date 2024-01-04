@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1204AFFB2B45389600C92C40 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1204AFFA2B45389600C92C40 /* NotificationService.swift */; };
 		1204AFFF2B45389600C92C40 /* NotificationServiceExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 1204AFF82B45389600C92C40 /* NotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		1255B8A02B469BD300034EE9 /* Debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 1255B89F2B469BD300034EE9 /* Debug.xcconfig */; };
+		1255B8A22B469BFB00034EE9 /* Release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 1255B8A12B469BFB00034EE9 /* Release.xcconfig */; };
 		12A0C7E32B43E7DC0060E039 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 12A0C7E22B43E7DC0060E039 /* FirebaseAnalytics */; };
 		12A0C7E52B43E7DC0060E039 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = 12A0C7E42B43E7DC0060E039 /* FirebaseAnalyticsOnDeviceConversion */; };
 		12A0C7E72B43E7DC0060E039 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 12A0C7E62B43E7DC0060E039 /* FirebaseAnalyticsSwift */; };
@@ -53,6 +55,8 @@
 		1204AFF82B45389600C92C40 /* NotificationServiceExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NotificationServiceExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		1204AFFA2B45389600C92C40 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		1204AFFC2B45389600C92C40 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1255B89F2B469BD300034EE9 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
+		1255B8A12B469BFB00034EE9 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		12A0C7F52B43FC970060E039 /* LooiDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LooiDebug.entitlements; sourceTree = "<group>"; };
 		12A0C7F62B4406A80060E039 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Looi/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		12E818392B247C710016AF71 /* Looi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Looi.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,6 +102,15 @@
 			path = NotificationServiceExtension;
 			sourceTree = "<group>";
 		};
+		1255B89E2B469BC200034EE9 /* XConfig */ = {
+			isa = PBXGroup;
+			children = (
+				1255B89F2B469BD300034EE9 /* Debug.xcconfig */,
+				1255B8A12B469BFB00034EE9 /* Release.xcconfig */,
+			);
+			path = XConfig;
+			sourceTree = "<group>";
+		};
 		12A0C7F12B43FA800060E039 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -108,6 +121,7 @@
 		12E818302B247C710016AF71 = {
 			isa = PBXGroup;
 			children = (
+				1255B89E2B469BC200034EE9 /* XConfig */,
 				12A0C7F62B4406A80060E039 /* GoogleService-Info.plist */,
 				12E8183B2B247C710016AF71 /* Looi */,
 				1204AFF92B45389600C92C40 /* NotificationServiceExtension */,
@@ -255,9 +269,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1255B8A02B469BD300034EE9 /* Debug.xcconfig in Resources */,
 				12E818442B247C720016AF71 /* Preview Assets.xcassets in Resources */,
 				12E818412B247C720016AF71 /* Assets.xcassets in Resources */,
 				12A0C7F72B4406A80060E039 /* GoogleService-Info.plist in Resources */,
+				1255B8A22B469BFB00034EE9 /* Release.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -488,6 +504,7 @@
 		};
 		12E818482B247C720016AF71 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1255B89F2B469BD300034EE9 /* Debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -534,17 +551,17 @@
 		};
 		12E818492B247C720016AF71 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1255B8A12B469BFB00034EE9 /* Release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Looi/LooiRelease.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Looi/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 76KPWSL348;
+				DEVELOPMENT_TEAM = 76KPWSL348;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Looi/Info.plist;
@@ -567,7 +584,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = zip.docent.looi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Looi-profile-prod";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
