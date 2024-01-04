@@ -66,9 +66,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     
     // Foreground에서도 푸시 오는 설정
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        let userInfo = notification.request.content.userInfo
-        print("🔔userInfo", userInfo);
-            
+        
         completionHandler([.list, .banner])
     }
     
@@ -78,23 +76,23 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         let userInfo = response.notification.request.content.userInfo
         let landingUrl = userInfo["landing_url"] as? String ?? ""
         let application = UIApplication.shared
-        
-        print(">> url!", landingUrl)
-        print(">> state!", application.applicationState)
-        
+ 
         switch application.applicationState {
             case .active:
                 print(">> state! active")
+                NotificationCenter.default.post(name: Notification.Name("loadNewUrl"), object: nil, userInfo: userInfo)
             case .inactive:
                 print(">> state! inactive")
+                NotificationCenter.default.post(name: Notification.Name("loadNewUrl"), object: nil, userInfo: userInfo)
             case .background:
                 print(">> state! background")
 
                 let userDefault = UserDefaults.standard
                 userDefault.set(landingUrl, forKey: "LANDING_URL")
                 userDefault.synchronize()
+                
             default:
-                print(">> state!")
+                print(">> state! none")
         }
         
         completionHandler()

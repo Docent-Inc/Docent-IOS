@@ -16,6 +16,8 @@ class ViewController: UIViewController, WKNavigationDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setObserver()
         webViewInit()
     }
     
@@ -37,6 +39,18 @@ class ViewController: UIViewController, WKNavigationDelegate {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         webView.frame = view.bounds
+    }
+    
+    func setObserver() {
+        // Foreground 푸시를 통해 수신한 landing_url이 있는 경우,
+        NotificationCenter.default.addObserver(forName: Notification.Name("loadNewUrl"), object: nil, queue: nil) { notification in
+                guard let userInfo = notification.userInfo,
+                      let landingUrl = userInfo["landing_url"]! as? String else { return }
+                   
+                if let url = URL(string: self.BASE_URL + landingUrl) {
+                    self.webView.load(URLRequest(url: url))
+                }
+        }
     }
     
     func webViewInit() {
@@ -63,14 +77,14 @@ class ViewController: UIViewController, WKNavigationDelegate {
         modifiedSince: Date(timeIntervalSince1970: 0)) { }
         
         // 스와이프를 통해 뒤로가기 활성화 - 비활성화
-//        webView.allowsBackForwardNavigationGestures = true
-//        webView.isInspectable = true
+        // webView.allowsBackForwardNavigationGestures = true
+        
+        // TODO: 배포 시 주석 처리 - safari 개발자모드 디버깅 활성화
+        webView.isInspectable = true
         
         // Background 푸시를 통해 수신한 landing_url이 있는 경우,
         let userDefault = UserDefaults.standard
         if let landingUrl:String = userDefault.string(forKey: "LANDING_URL") {
-            print(">>> LANDING_URL", landingUrl);
-            
             if let url = URL(string: BASE_URL + landingUrl) {
                 webView.load(URLRequest(url: url))
             }
@@ -88,7 +102,6 @@ class ViewController: UIViewController, WKNavigationDelegate {
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         self.didFinishLoading?()
-        
    }
 }
 
