@@ -56,6 +56,7 @@ class ViewController: UIViewController, WKNavigationDelegate {
        
         // Bridge 함수 등록
         contentController.add(self, name: "reqFCMToken")
+        contentController.add(self, name: "removeCache")
         configuration.userContentController = contentController
         
         webView = WKWebView(frame: .zero, configuration: configuration)
@@ -68,10 +69,10 @@ class ViewController: UIViewController, WKNavigationDelegate {
          
         self.view.addSubview(webView)
         
-        // 쿠키, 세션, 로컬 스토리지, 캐시 등 데이터를 관리하는 객체 - 캐시 제거
-        WKWebsiteDataStore.default().removeData(ofTypes:
-        [WKWebsiteDataTypeDiskCache, WKWebsiteDataTypeMemoryCache],
-        modifiedSince: Date(timeIntervalSince1970: 0)) { }
+        // 쿠키, 세션, 로컬 스토리지, 캐시 등 데이터를 관리하는 객체 - 캐시 제거 - 비활성화
+        // WKWebsiteDataStore.default().removeData(ofTypes:
+        // [WKWebsiteDataTypeDiskCache, WKWebsiteDataTypeMemoryCache],
+        // modifiedSince: Date(timeIntervalSince1970: 0)) { }
         
         // 스와이프를 통해 뒤로가기 활성화 - 비활성화
         // webView.allowsBackForwardNavigationGestures = true
@@ -154,10 +155,6 @@ extension ViewController: WKScriptMessageHandler{
         print("✈️Message received from Webview >>>", message.name, message.body);
         
         if(message.name == "reqFCMToken"){
-//            let data:[String:String] = message.body as! Dictionary
-            //location Event
-            //data["action"] = searchLocation
-            
             // 웹뷰 로드 후, FCM 토큰 등록
             Messaging.messaging().token { token, error in
               if let error = error {
@@ -166,6 +163,13 @@ extension ViewController: WKScriptMessageHandler{
                 print("👀FCM registration token: \(token)")
                 self.callJavaScriptFunction(function: "resFCMToken", params: [token]);
               }
+            }
+        } else if (message.name == "removeCache") {
+            // 쿠키, 세션, 로컬 스토리지, 캐시 등 데이터를 관리하는 객체 - 웹뷰 캐시 제거
+            WKWebsiteDataStore.default().removeData(ofTypes:
+            [WKWebsiteDataTypeDiskCache, WKWebsiteDataTypeMemoryCache],
+            modifiedSince: Date(timeIntervalSince1970: 0)) {
+                print("삭제완료")
             }
         }
     }
