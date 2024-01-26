@@ -100,7 +100,45 @@ class ViewController: UIViewController, WKNavigationDelegate {
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         self.didFinishLoading?()
+        
+        // [TODO] 사용 예시
+        getAccessToken { accessToken in
+            if let accessToken = accessToken {
+                print("Access Token이 있습니다. >>> \(accessToken)")
+            } else {
+                print("Access Token이 없습니다.")
+            }
+        }
    }
+    
+    
+    // 쿠키에서 액세스 토큰 가져오기
+    func getAccessToken(completion: @escaping (String?) -> Void) {
+        let cookieStore = webView.configuration.websiteDataStore.httpCookieStore
+        cookieStore.getAllCookies { cookies in
+            var accessToken: String?
+
+            if let accessTokenCookie = cookies.first(where: { $0.name == "access_token" }) {
+                print("[SAVE] cookie name: \(accessTokenCookie.name), cookie value: \(accessTokenCookie.value)")
+
+                UserDefaults.standard.set(accessTokenCookie.value, forKey: "access_token")
+                UserDefaults.standard.synchronize()
+
+                accessToken = accessTokenCookie.value
+                completion(accessToken)
+                return
+            }
+
+            // 쿠키에는 없는데 UserDefault에 있는 경우, 초기화
+            if UserDefaults.standard.object(forKey: "access_token") != nil {
+                print("[REMOVE] access_token not found in cookies. Removing from UserDefaults.")
+                UserDefaults.standard.removeObject(forKey: "access_token")
+                UserDefaults.standard.synchronize()
+            }
+
+            completion(nil)
+        }
+    }
 }
 
 /**
