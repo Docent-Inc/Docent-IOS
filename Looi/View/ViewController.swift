@@ -41,18 +41,19 @@ class ViewController: UIViewController, WKNavigationDelegate {
     
     func adjustWebViewFrame(shouldAdjustSafeArea: Bool) {
         DispatchQueue.main.async {
-            if shouldAdjustSafeArea {
-                self.webView.frame = self.view.safeAreaLayoutGuide.layoutFrame
-                print("Safe area on")
-            } else {
-                self.webView.frame = self.initialBounds
-                print("Safe area off")
+            UIView.animate(withDuration: 0.5, animations: {
+                    if shouldAdjustSafeArea {
+                        self.webView.frame = self.view.safeAreaLayoutGuide.layoutFrame
+                        print("Safe area on")
+                    } else {
+                        self.webView.frame = self.initialBounds
+                        print("Safe area off")
+                    }
+                    self.webView.layoutIfNeeded()
+                }) { _ in
+                    print("WebView frame: \(self.webView.frame)")
+                }
             }
-            print("WebView frame: \(self.webView.frame)")
-            self.webView.layoutIfNeeded()
-            self.webView.layer.borderColor = UIColor.red.cgColor
-            self.webView.layer.borderWidth = 2.0// 또는 다른 색상
-        }
     }
 
     

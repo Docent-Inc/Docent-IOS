@@ -17,11 +17,8 @@ struct LooiApp: App {
     var body: some Scene {
         WindowGroup {
             ZStack {
-                WebView(updateLayout: $updateLayout) {
+                WebView() {
                     self.isLoading = false
-                }
-                Button("Toggle Layout") { // 테스트용
-                    updateLayout.toggle()
                 }
                 if isLoading {
                     SplashView()

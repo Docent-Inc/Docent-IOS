@@ -7,3 +7,4 @@
 // https://help.apple.com/xcode/#/dev745c5c974
 
 BASE_URL = https:/$()/bmongsmong.com
+// BASE_URL = http:/$()/172.16.227.91:3000
