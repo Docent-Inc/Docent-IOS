@@ -9,33 +9,56 @@ class ViewController: UIViewController, WKNavigationDelegate {
     let BASE_URL: String =  Bundle.main.object(forInfoDictionaryKey: "BaseURL") as? String ?? ""
     
     var webView: WKWebView!
+    var shouldAdjustSafeArea = false
+    var initialBounds: CGRect = .zero
     var didFinishLoading: (() -> Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        initialBounds = view.bounds
         setObserver()
         webViewInit()
     }
     
     override func viewDidAppear(_ animated: Bool) {
-           super.viewDidAppear(animated)
-
-           guard Reachability.networkConnected() else {
-               let alert = UIAlertController(title: "NetworkError", message: "네트워크가 연결되어있지 않습니다.", preferredStyle: .alert)
-               let okAction = UIAlertAction(title: "종료", style: .default) { (action) in
-                   exit(0)
-               }
-               alert.addAction(okAction)
-               self.present(alert, animated: true, completion: nil)
-               return
-           }
-           
+        super.viewDidAppear(animated)
+        
+        guard Reachability.networkConnected() else {
+            let alert = UIAlertController(title: "NetworkError", message: "네트워크가 연결되어있지 않습니다.", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "종료", style: .default) { (action) in
+                exit(0)
+            }
+            alert.addAction(okAction)
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
+        
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        webView.frame = view.bounds
+    }
+    
+    func adjustWebViewFrame(shouldAdjustSafeArea: Bool) {
+        DispatchQueue.main.async {
+            if shouldAdjustSafeArea {
+                self.webView.frame = self.view.safeAreaLayoutGuide.layoutFrame
+                print("Safe area on")
+            } else {
+                self.webView.frame = self.initialBounds
+                print("Safe area off")
+            }
+            print("WebView frame: \(self.webView.frame)")
+            self.webView.layoutIfNeeded()
+            self.webView.layer.borderColor = UIColor.red.cgColor
+            self.webView.layer.borderWidth = 2.0// 또는 다른 색상
+        }
+    }
+
+    
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
     func setObserver() {
@@ -57,17 +80,22 @@ class ViewController: UIViewController, WKNavigationDelegate {
         // Bridge 함수 등록
         contentController.add(self, name: "reqFCMToken")
         contentController.add(self, name: "removeCache")
+        contentController.add(self, name: "adjustSafeArea")
+        
         configuration.userContentController = contentController
+        
         
         webView = WKWebView(frame: .zero, configuration: configuration)
         webView.uiDelegate = self
         webView.navigationDelegate = self
+        webView.frame = initialBounds
+        webView.translatesAutoresizingMaskIntoConstraints = true
+        self.view.addSubview(webView)
         
         // IOS App 구분을 위한 User-agent 설정
         let userAgent = webView.value(forKey: "userAgent")
         webView.customUserAgent = userAgent as! String + " looi-ios"
-         
-        self.view.addSubview(webView)
+        
         
         // 쿠키, 세션, 로컬 스토리지, 캐시 등 데이터를 관리하는 객체 - 캐시 제거 - 비활성화
         // WKWebsiteDataStore.default().removeData(ofTypes:
@@ -75,7 +103,7 @@ class ViewController: UIViewController, WKNavigationDelegate {
         // modifiedSince: Date(timeIntervalSince1970: 0)) { }
         
         // 스와이프를 통해 뒤로가기 활성화 - 비활성화
-        // webView.allowsBackForwardNavigationGestures = true
+        webView.allowsBackForwardNavigationGestures = true
         
         // TODO: 배포 시 주석 처리 - safari 개발자모드 디버깅 활성화
         webView.isInspectable = true
@@ -109,7 +137,7 @@ class ViewController: UIViewController, WKNavigationDelegate {
                 print("Access Token이 없습니다.")
             }
         }
-   }
+    }
     
     
     // 쿠키에서 액세스 토큰 가져오기
@@ -195,20 +223,29 @@ extension ViewController: WKScriptMessageHandler{
         if(message.name == "reqFCMToken"){
             // 웹뷰 로드 후, FCM 토큰 등록
             Messaging.messaging().token { token, error in
-              if let error = error {
-                print("👀Error fetching FCM registration token: \(error)")
-              } else if let token = token {
-                print("👀FCM registration token: \(token)")
-                self.callJavaScriptFunction(function: "resFCMToken", params: [token]);
-              }
+                if let error = error {
+                    print("👀Error fetching FCM registration token: \(error)")
+                } else if let token = token {
+                    print("👀FCM registration token: \(token)")
+                    self.callJavaScriptFunction(function: "resFCMToken", params: [token]);
+                }
             }
         } else if (message.name == "removeCache") {
             // 쿠키, 세션, 로컬 스토리지, 캐시 등 데이터를 관리하는 객체 - 웹뷰 캐시 제거
             WKWebsiteDataStore.default().removeData(ofTypes:
-            [WKWebsiteDataTypeDiskCache, WKWebsiteDataTypeMemoryCache],
-            modifiedSince: Date(timeIntervalSince1970: 0)) {
+                                                        [WKWebsiteDataTypeDiskCache, WKWebsiteDataTypeMemoryCache],
+                                                    modifiedSince: Date(timeIntervalSince1970: 0)) {
                 print("삭제완료")
             }
+        }
+        if message.name == "adjustSafeArea", let messageBody = message.body as? Bool {
+            if (messageBody == true){
+                adjustWebViewFrame(shouldAdjustSafeArea: true)
+            }
+            else{
+                adjustWebViewFrame(shouldAdjustSafeArea: false)
+            }
+            
         }
     }
     

@@ -11,22 +11,26 @@ import FirebaseMessaging
 @main
 struct LooiApp: App {
     @State private var isLoading = true
+    @State private var updateLayout = false
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
-    
+
     var body: some Scene {
         WindowGroup {
             ZStack {
-                WebView {
+                WebView(updateLayout: $updateLayout) {
                     self.isLoading = false
                 }
-                
+                Button("Toggle Layout") { // 테스트용
+                    updateLayout.toggle()
+                }
                 if isLoading {
                     SplashView()
                 }
             }
-       }
+        }
     }
 }
+
 
 
 class AppDelegate: NSObject, UIApplicationDelegate {
