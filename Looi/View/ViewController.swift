@@ -44,10 +44,8 @@ class ViewController: UIViewController, WKNavigationDelegate {
             UIView.animate(withDuration: 0.5, animations: {
                     if shouldAdjustSafeArea {
                         self.webView.frame = self.view.safeAreaLayoutGuide.layoutFrame
-                        print("Safe area on")
                     } else {
                         self.webView.frame = self.initialBounds
-                        print("Safe area off")
                     }
                     self.webView.layoutIfNeeded()
                 }) { _ in

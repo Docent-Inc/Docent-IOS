@@ -25,6 +25,11 @@
 		12E8184D2B248E340016AF71 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E8184C2B248E340016AF71 /* SplashView.swift */; };
 		12E818502B248E900016AF71 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E8184F2B248E900016AF71 /* WebView.swift */; };
 		12E818542B2495570016AF71 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E818532B2495570016AF71 /* ViewController.swift */; };
+		12E9F1C82B74286400B1D8E5 /* TokenMannager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E9F1C72B74286400B1D8E5 /* TokenMannager.swift */; };
+		12E9F1CA2B74293500B1D8E5 /* short in Resources */ = {isa = PBXBuildFile; fileRef = 12E9F1C92B74293500B1D8E5 /* short */; };
+		12E9F1D22B742B3800B1D8E5 /* shortcutExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E9F1D12B742B3800B1D8E5 /* shortcutExtension.swift */; };
+		12E9F1D42B742B3800B1D8E5 /* shortcut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E9F1D32B742B3800B1D8E5 /* shortcut.swift */; };
+		12E9F1D82B742B3800B1D8E5 /* shortcut.appex in Embed ExtensionKit Extensions */ = {isa = PBXBuildFile; fileRef = 12E9F1CF2B742B3800B1D8E5 /* shortcut.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +39,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 1204AFF72B45389600C92C40;
 			remoteInfo = NotificationServiceExtension;
+		};
+		12E9F1D62B742B3800B1D8E5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 12E818312B247C710016AF71 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 12E9F1CE2B742B3800B1D8E5;
+			remoteInfo = shortcut;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -47,6 +59,17 @@
 				1204AFFF2B45389600C92C40 /* NotificationServiceExtension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		12E9F1DC2B742B3800B1D8E5 /* Embed ExtensionKit Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(EXTENSIONS_FOLDER_PATH)";
+			dstSubfolderSpec = 16;
+			files = (
+				12E9F1D82B742B3800B1D8E5 /* shortcut.appex in Embed ExtensionKit Extensions */,
+			);
+			name = "Embed ExtensionKit Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -67,6 +90,14 @@
 		12E8184C2B248E340016AF71 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		12E8184F2B248E900016AF71 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		12E818532B2495570016AF71 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		12E9F1C42B74282D00B1D8E5 /* shortcutFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shortcutFunc.swift; sourceTree = "<group>"; };
+		12E9F1C52B74282D00B1D8E5 /* registerToShortcut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = registerToShortcut.swift; sourceTree = "<group>"; };
+		12E9F1C72B74286400B1D8E5 /* TokenMannager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TokenMannager.swift; path = ../../../../Desktop/Looi/View/TokenMannager.swift; sourceTree = "<group>"; };
+		12E9F1C92B74293500B1D8E5 /* short */ = {isa = PBXFileReference; lastKnownFileType = folder; name = short; path = ../../../../Desktop/Looi/View/short; sourceTree = "<group>"; };
+		12E9F1CF2B742B3800B1D8E5 /* shortcut.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.extensionkit-extension"; includeInIndex = 0; path = shortcut.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		12E9F1D12B742B3800B1D8E5 /* shortcutExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shortcutExtension.swift; sourceTree = "<group>"; };
+		12E9F1D32B742B3800B1D8E5 /* shortcut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shortcut.swift; sourceTree = "<group>"; };
+		12E9F1D52B742B3800B1D8E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +118,13 @@
 				12A0C7E52B43E7DC0060E039 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */,
 				12A0C7EB2B43E7DC0060E039 /* FirebaseAppCheck in Frameworks */,
 				12A0C7E92B43E7DC0060E039 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		12E9F1CC2B742B3800B1D8E5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,6 +163,7 @@
 				12A0C7F62B4406A80060E039 /* GoogleService-Info.plist */,
 				12E8183B2B247C710016AF71 /* Looi */,
 				1204AFF92B45389600C92C40 /* NotificationServiceExtension */,
+				12E9F1D02B742B3800B1D8E5 /* shortcut */,
 				12E8183A2B247C710016AF71 /* Products */,
 				12A0C7F12B43FA800060E039 /* Frameworks */,
 			);
@@ -135,6 +174,7 @@
 			children = (
 				12E818392B247C710016AF71 /* Looi.app */,
 				1204AFF82B45389600C92C40 /* NotificationServiceExtension.appex */,
+				12E9F1CF2B742B3800B1D8E5 /* shortcut.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -142,6 +182,7 @@
 		12E8183B2B247C710016AF71 /* Looi */ = {
 			isa = PBXGroup;
 			children = (
+				12E9F1C32B74282D00B1D8E5 /* shortcut */,
 				12A0C7F52B43FC970060E039 /* LooiDebug.entitlements */,
 				12E8184E2B248E400016AF71 /* View */,
 				12E8183C2B247C710016AF71 /* LooiApp.swift */,
@@ -163,11 +204,33 @@
 		12E8184E2B248E400016AF71 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				12E9F1C92B74293500B1D8E5 /* short */,
+				12E9F1C72B74286400B1D8E5 /* TokenMannager.swift */,
 				12E8184C2B248E340016AF71 /* SplashView.swift */,
 				12E8184F2B248E900016AF71 /* WebView.swift */,
 				12E818532B2495570016AF71 /* ViewController.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		12E9F1C32B74282D00B1D8E5 /* shortcut */ = {
+			isa = PBXGroup;
+			children = (
+				12E9F1C42B74282D00B1D8E5 /* shortcutFunc.swift */,
+				12E9F1C52B74282D00B1D8E5 /* registerToShortcut.swift */,
+			);
+			name = shortcut;
+			path = View/shortcut;
+			sourceTree = "<group>";
+		};
+		12E9F1D02B742B3800B1D8E5 /* shortcut */ = {
+			isa = PBXGroup;
+			children = (
+				12E9F1D12B742B3800B1D8E5 /* shortcutExtension.swift */,
+				12E9F1D32B742B3800B1D8E5 /* shortcut.swift */,
+				12E9F1D52B742B3800B1D8E5 /* Info.plist */,
+			);
+			path = shortcut;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,11 +261,13 @@
 				12E818362B247C710016AF71 /* Frameworks */,
 				12E818372B247C710016AF71 /* Resources */,
 				1204B0002B45389600C92C40 /* Embed Foundation Extensions */,
+				12E9F1DC2B742B3800B1D8E5 /* Embed ExtensionKit Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				1204AFFE2B45389600C92C40 /* PBXTargetDependency */,
+				12E9F1D72B742B3800B1D8E5 /* PBXTargetDependency */,
 			);
 			name = Looi;
 			packageProductDependencies = (
@@ -217,6 +282,23 @@
 			productReference = 12E818392B247C710016AF71 /* Looi.app */;
 			productType = "com.apple.product-type.application";
 		};
+		12E9F1CE2B742B3800B1D8E5 /* shortcut */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 12E9F1D92B742B3800B1D8E5 /* Build configuration list for PBXNativeTarget "shortcut" */;
+			buildPhases = (
+				12E9F1CB2B742B3800B1D8E5 /* Sources */,
+				12E9F1CC2B742B3800B1D8E5 /* Frameworks */,
+				12E9F1CD2B742B3800B1D8E5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = shortcut;
+			productName = shortcut;
+			productReference = 12E9F1CF2B742B3800B1D8E5 /* shortcut.appex */;
+			productType = "com.apple.product-type.extensionkit-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -224,7 +306,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1510;
+				LastSwiftUpdateCheck = 1520;
 				LastUpgradeCheck = 1510;
 				TargetAttributes = {
 					1204AFF72B45389600C92C40 = {
@@ -232,6 +314,9 @@
 					};
 					12E818382B247C710016AF71 = {
 						CreatedOnToolsVersion = 14.3.1;
+					};
+					12E9F1CE2B742B3800B1D8E5 = {
+						CreatedOnToolsVersion = 15.2;
 					};
 				};
 			};
@@ -253,6 +338,7 @@
 			targets = (
 				12E818382B247C710016AF71 /* Looi */,
 				1204AFF72B45389600C92C40 /* NotificationServiceExtension */,
+				12E9F1CE2B742B3800B1D8E5 /* shortcut */,
 			);
 		};
 /* End PBXProject section */
@@ -272,8 +358,16 @@
 				1255B8A02B469BD300034EE9 /* Debug.xcconfig in Resources */,
 				12E818442B247C720016AF71 /* Preview Assets.xcassets in Resources */,
 				12E818412B247C720016AF71 /* Assets.xcassets in Resources */,
+				12E9F1CA2B74293500B1D8E5 /* short in Resources */,
 				12A0C7F72B4406A80060E039 /* GoogleService-Info.plist in Resources */,
 				1255B8A22B469BFB00034EE9 /* Release.xcconfig in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		12E9F1CD2B742B3800B1D8E5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,7 +390,17 @@
 				12E8184B2B247D2D0016AF71 /* Reachability.swift in Sources */,
 				12E818502B248E900016AF71 /* WebView.swift in Sources */,
 				12E8183D2B247C710016AF71 /* LooiApp.swift in Sources */,
+				12E9F1C82B74286400B1D8E5 /* TokenMannager.swift in Sources */,
 				12E8184D2B248E340016AF71 /* SplashView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		12E9F1CB2B742B3800B1D8E5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				12E9F1D22B742B3800B1D8E5 /* shortcutExtension.swift in Sources */,
+				12E9F1D42B742B3800B1D8E5 /* shortcut.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,6 +411,11 @@
 			isa = PBXTargetDependency;
 			target = 1204AFF72B45389600C92C40 /* NotificationServiceExtension */;
 			targetProxy = 1204AFFD2B45389600C92C40 /* PBXContainerItemProxy */;
+		};
+		12E9F1D72B742B3800B1D8E5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 12E9F1CE2B742B3800B1D8E5 /* shortcut */;
+			targetProxy = 12E9F1D62B742B3800B1D8E5 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -519,7 +628,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"Looi/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 76KPWSL348;
@@ -541,7 +650,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.1;
+				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = zip.docent.looi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -565,7 +674,7 @@
 				CODE_SIGN_ENTITLEMENTS = Looi/LooiRelease.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"Looi/Preview Content\"";
 				DEVELOPMENT_TEAM = 76KPWSL348;
 				ENABLE_PREVIEWS = YES;
@@ -586,7 +695,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.1;
+				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = zip.docent.looi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -596,6 +705,68 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		12E9F1DA2B742B3800B1D8E5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 76KPWSL348;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = shortcut/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = shortcut;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = zip.docent.looi.shortcut;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		12E9F1DB2B742B3800B1D8E5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 76KPWSL348;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = shortcut/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = shortcut;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = zip.docent.looi.shortcut;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -625,6 +796,15 @@
 			buildConfigurations = (
 				12E818482B247C720016AF71 /* Debug */,
 				12E818492B247C720016AF71 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		12E9F1D92B742B3800B1D8E5 /* Build configuration list for PBXNativeTarget "shortcut" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				12E9F1DA2B742B3800B1D8E5 /* Debug */,
+				12E9F1DB2B742B3800B1D8E5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
