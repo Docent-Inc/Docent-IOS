@@ -4,6 +4,7 @@
 import SwiftUI
 import WebKit
 import FirebaseMessaging
+import SafariServices
 
 class ViewController: UIViewController, WKNavigationDelegate {
     let BASE_URL: String =  Bundle.main.object(forInfoDictionaryKey: "BaseURL") as? String ?? ""
@@ -39,19 +40,23 @@ class ViewController: UIViewController, WKNavigationDelegate {
         super.viewDidLayoutSubviews()
     }
     
+    func openSFSafariViewController(url: String) {
+            guard let url = URL(string: url) else { return }
+            let safariViewController = SFSafariViewController(url: url)
+            present(safariViewController, animated: true, completion: nil)
+        }
+    
     func adjustWebViewFrame(shouldAdjustSafeArea: Bool) {
         DispatchQueue.main.async {
             UIView.animate(withDuration: 0.5, animations: {
                     if shouldAdjustSafeArea {
                         self.webView.frame = self.view.safeAreaLayoutGuide.layoutFrame
-                        print("Safe area on")
                     } else {
                         self.webView.frame = self.initialBounds
-                        print("Safe area off")
+
                     }
                     self.webView.layoutIfNeeded()
                 }) { _ in
-                    print("WebView frame: \(self.webView.frame)")
                 }
             }
     }
@@ -82,6 +87,8 @@ class ViewController: UIViewController, WKNavigationDelegate {
         contentController.add(self, name: "reqFCMToken")
         contentController.add(self, name: "removeCache")
         contentController.add(self, name: "adjustSafeArea")
+        contentController.add(self, name: "openKakaoLink")
+        contentController.add(self, name: "openLink")
         
         configuration.userContentController = contentController
         
@@ -239,14 +246,22 @@ extension ViewController: WKScriptMessageHandler{
                 print("삭제완료")
             }
         }
-        if message.name == "adjustSafeArea", let messageBody = message.body as? Bool {
+        else if message.name == "adjustSafeArea", let messageBody = message.body as? Bool {
             if (messageBody == true){
                 adjustWebViewFrame(shouldAdjustSafeArea: true)
             }
             else{
                 adjustWebViewFrame(shouldAdjustSafeArea: false)
             }
-            
+        }
+        else if message.name == "openLink", let messageBody = message.body as? String
+        {
+            openSFSafariViewController(url: messageBody)
+        }
+        else if message.name == "openKakaoLink", let messageBody = message.body as? String
+        {
+            let url = URL(string: messageBody)!
+            webView.load(URLRequest(url: url))
         }
     }
     
