@@ -18,6 +18,7 @@
 		12A0C7EB2B43E7DC0060E039 /* FirebaseAppCheck in Frameworks */ = {isa = PBXBuildFile; productRef = 12A0C7EA2B43E7DC0060E039 /* FirebaseAppCheck */; };
 		12A0C7F32B43FA800060E039 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 12A0C7F22B43FA800060E039 /* FirebaseMessaging */; };
 		12A0C7F72B4406A80060E039 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 12A0C7F62B4406A80060E039 /* GoogleService-Info.plist */; };
+		12A2B0802B81994F00C44B17 /* TokenMannager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A2B07F2B81994F00C44B17 /* TokenMannager.swift */; };
 		12E8183D2B247C710016AF71 /* LooiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E8183C2B247C710016AF71 /* LooiApp.swift */; };
 		12E818412B247C720016AF71 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12E818402B247C720016AF71 /* Assets.xcassets */; };
 		12E818442B247C720016AF71 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12E818432B247C720016AF71 /* Preview Assets.xcassets */; };
@@ -25,8 +26,6 @@
 		12E8184D2B248E340016AF71 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E8184C2B248E340016AF71 /* SplashView.swift */; };
 		12E818502B248E900016AF71 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E8184F2B248E900016AF71 /* WebView.swift */; };
 		12E818542B2495570016AF71 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E818532B2495570016AF71 /* ViewController.swift */; };
-		12E9F1C82B74286400B1D8E5 /* TokenMannager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E9F1C72B74286400B1D8E5 /* TokenMannager.swift */; };
-		12E9F1CA2B74293500B1D8E5 /* short in Resources */ = {isa = PBXBuildFile; fileRef = 12E9F1C92B74293500B1D8E5 /* short */; };
 		12E9F1D22B742B3800B1D8E5 /* shortcutExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E9F1D12B742B3800B1D8E5 /* shortcutExtension.swift */; };
 		12E9F1D42B742B3800B1D8E5 /* shortcut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E9F1D32B742B3800B1D8E5 /* shortcut.swift */; };
 		12E9F1D82B742B3800B1D8E5 /* shortcut.appex in Embed ExtensionKit Extensions */ = {isa = PBXBuildFile; fileRef = 12E9F1CF2B742B3800B1D8E5 /* shortcut.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -82,6 +81,7 @@
 		1255B8A12B469BFB00034EE9 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		12A0C7F52B43FC970060E039 /* LooiDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LooiDebug.entitlements; sourceTree = "<group>"; };
 		12A0C7F62B4406A80060E039 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Looi/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		12A2B07F2B81994F00C44B17 /* TokenMannager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenMannager.swift; sourceTree = "<group>"; };
 		12E818392B247C710016AF71 /* Looi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Looi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		12E8183C2B247C710016AF71 /* LooiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LooiApp.swift; sourceTree = "<group>"; };
 		12E818402B247C720016AF71 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -92,8 +92,6 @@
 		12E818532B2495570016AF71 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		12E9F1C42B74282D00B1D8E5 /* shortcutFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shortcutFunc.swift; sourceTree = "<group>"; };
 		12E9F1C52B74282D00B1D8E5 /* registerToShortcut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = registerToShortcut.swift; sourceTree = "<group>"; };
-		12E9F1C72B74286400B1D8E5 /* TokenMannager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TokenMannager.swift; path = ../../../../Desktop/Looi/View/TokenMannager.swift; sourceTree = "<group>"; };
-		12E9F1C92B74293500B1D8E5 /* short */ = {isa = PBXFileReference; lastKnownFileType = folder; name = short; path = ../../../../Desktop/Looi/View/short; sourceTree = "<group>"; };
 		12E9F1CF2B742B3800B1D8E5 /* shortcut.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.extensionkit-extension"; includeInIndex = 0; path = shortcut.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		12E9F1D12B742B3800B1D8E5 /* shortcutExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shortcutExtension.swift; sourceTree = "<group>"; };
 		12E9F1D32B742B3800B1D8E5 /* shortcut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shortcut.swift; sourceTree = "<group>"; };
@@ -204,11 +202,10 @@
 		12E8184E2B248E400016AF71 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				12E9F1C92B74293500B1D8E5 /* short */,
-				12E9F1C72B74286400B1D8E5 /* TokenMannager.swift */,
 				12E8184C2B248E340016AF71 /* SplashView.swift */,
 				12E8184F2B248E900016AF71 /* WebView.swift */,
 				12E818532B2495570016AF71 /* ViewController.swift */,
+				12A2B07F2B81994F00C44B17 /* TokenMannager.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -358,7 +355,6 @@
 				1255B8A02B469BD300034EE9 /* Debug.xcconfig in Resources */,
 				12E818442B247C720016AF71 /* Preview Assets.xcassets in Resources */,
 				12E818412B247C720016AF71 /* Assets.xcassets in Resources */,
-				12E9F1CA2B74293500B1D8E5 /* short in Resources */,
 				12A0C7F72B4406A80060E039 /* GoogleService-Info.plist in Resources */,
 				1255B8A22B469BFB00034EE9 /* Release.xcconfig in Resources */,
 			);
@@ -390,7 +386,7 @@
 				12E8184B2B247D2D0016AF71 /* Reachability.swift in Sources */,
 				12E818502B248E900016AF71 /* WebView.swift in Sources */,
 				12E8183D2B247C710016AF71 /* LooiApp.swift in Sources */,
-				12E9F1C82B74286400B1D8E5 /* TokenMannager.swift in Sources */,
+				12A2B0802B81994F00C44B17 /* TokenMannager.swift in Sources */,
 				12E8184D2B248E340016AF71 /* SplashView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
