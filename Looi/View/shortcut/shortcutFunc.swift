@@ -8,7 +8,6 @@
 import AppIntents
 import Foundation
 
-print("qwer")
 
 struct CustomResult {
     var token: String
@@ -16,6 +15,7 @@ struct CustomResult {
 }
 
 
+print("FQwefqwef")
 
 @available(iOS 16, *) // - 16 이상부터만 쓸 수 있다
 
